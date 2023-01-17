@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    font-family: arial;
+  }
+  
+  /* Style the body */
+  body {
+    margin: 0;
+  }
+  .header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar {
+    display: flex;
+    background-color: #ddd;
+    flex-direction: column;
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: gray;
+    color: white;
+  }
+  
+  /* Column container */
+  .row {  
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Create two unequal columns that sits next to each other */
+  /* Sidebar/left column */
+  .side {
+    flex: 30%;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 2px solid #ddd;
+    text-align: center;
+    overflow: auto;
+  }
+  
+  /* Main column */
+  .main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+    overflow: auto;
+  }
+  .imagebody{
+      width: 700px;
+      height: 550px;
+      border-radius: 20px;
+      display: block;
+      width: auto;
+      margin: auto;
+      opacity: 0.8;
+  }
+  .imageside{
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      display: block;
+      margin: auto;
+      border: 5px solid #ddd;
+  }
+  /* Footer */
+  .footer {
+    padding: 20px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .iconfooter{
+      width: 30px;
+      height: 30px;
+  }
+  
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 700px) {
+    .row{   
+      flex-direction: column;
+    }
+    .imagebody{
+      width: 500px;
+      height: 300px;
+    }
+    .side{
+      border-left: 0px;
+    }
+  }
