@@ -1,27 +1,21 @@
-  * {
+  *{
     box-sizing: border-box;
     font-family: arial;
-    height: auto;
-    width: auto;
     margin: 0;
   }
+
+ /* Header */
   .header {
     padding: 30px;
     text-align: center;
     background: white;
     color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
   }
   .navbar {
     display: flex;
     background-color: #ddd;
     flex-direction: column;
   }
-  
-  /* Style the navigation bar links */
   .navbar a {
     color: black;
     padding: 14px 20px;
@@ -29,21 +23,16 @@
     text-align: center;
     margin: 20px;
   }
-  
-  /* Change color on hover */
   .navbar a:hover {
     background-color: gray;
     color: white;
   }
   
-  /* Column container */
+  /* Body */
   .row {  
     display: flex;
     flex-wrap: wrap;
   }
-  
-  /* Create two unequal columns that sits next to each other */
-  /* Sidebar/left column */
   .side {
     flex: 30%;
     background-color: white;
@@ -54,8 +43,6 @@
     text-align: center;
     overflow: auto;
   }
-  
-  /* Main column */
   .main {
     flex: 70%;
     background-color: white;
@@ -79,6 +66,7 @@
       margin: auto;
       border: 5px solid #ddd;
   }
+
   /* Footer */
   .footer {
     padding: 20px;
@@ -87,9 +75,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: auto;
   }
-  
   .iconfooter{
       width: 30px;
       height: 30px;
