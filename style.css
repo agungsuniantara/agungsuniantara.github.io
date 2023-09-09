@@ -221,6 +221,10 @@ h1{
   color: black;
 }
 
+.filter-buttons a{
+  color: black;
+}
+
 .gallery {
   width: 100%;
 }
