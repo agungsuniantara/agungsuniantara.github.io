@@ -366,4 +366,8 @@ h1{
   .gallery-item img {
     height: 20vh;
   }
+
+  .gallery-item-keterangan p, h3, a{
+    font-size:smaller;
+  }
 }
