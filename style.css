@@ -148,6 +148,7 @@ h1{
   width: 100%;
   height: auto;
   gap: 10vh;
+  font-size: medium;
 }
 
 .resume-title {
@@ -207,7 +208,7 @@ h1{
   flex-direction: column;
   width: 100%;
   gap: 5vh;
-  font-size: small;
+  font-size: medium;
 }
 
 .filter-buttons {
