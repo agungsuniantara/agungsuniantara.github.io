@@ -218,6 +218,7 @@ h1{
 .filter-buttons button{
   padding: 1vh 3vh;
   cursor: pointer;
+  color: black;
 }
 
 .gallery {
