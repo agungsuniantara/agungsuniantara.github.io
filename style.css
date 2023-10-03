@@ -373,7 +373,7 @@ h1{
     height: 20vh;
   }
 
-  .gallery-item-keterangan p, h3, a{
+  .gallery-item-keterangan p, a{
     font-size:smaller;
   }
 }
