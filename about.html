@@ -4,187 +4,255 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>About</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      document.addEventListener(
+        "contextmenu",
+        function (e) {
+          e.preventDefault();
+        },
+        false
+      );
+      document.addEventListener(
+        "keydown",
+        function (e) {
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            disabledEvent(e);
+          }
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+          }
+          if (
+            e.keyCode == 83 &&
+            (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)
+          ) {
+            disabledEvent(e);
+          }
+          if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+          }
+          if (event.keyCode == 123) {
+            disabledEvent(e);
+          }
+          if (e.ctrlKey && event.keyCode == 67) {
+            disabledEvent(e);
+          }
+        },
+        false
+      );
+      function disabledEvent(e) {
+        if (e.stopPropagation) {
+          e.stopPropagation();
+        } else if (window.event) {
+          window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+      }
+    </script>
   </head>
   <body>
     <header class="header">
       <section class="flex">
-        <a href="index.html" class="logo"
-          ><img src="images/logo.png" alt=""
-        /></a>
         <div class="right_wrapper">
           <nav class="navbar">
-            <a href="index.html">home</a>
-            <a href="about.html">about us</a>
-            <a href="contact.html">contact us</a>
+            <a href="#profile">profile</a>
+            <a href="#about">about</a>
+            <a href="#education">education</a>
+            <a href="#experience">experience</a>
+            <a href="#skill">skill</a>
           </nav>
-          <a href="register.html" class="btn-register" style="margin-top: 0"
-            ><i class="fas fa-pencil-alt fa-lg"></i> Register</a
-          >
-          <a href="login.html" class="btn-masuk" style="margin-top: 0">
-            <div class="btn-masuk-login">
-              <p>Login</p>
-              <i class="fas fa-sign-in-alt"></i></div
-          ></a>
-          <a href="#" class="btn-menu" style="margin-top: 0">
-            <div class="btn-masuk-menu">
-              <p>Menu</p>
-              <i class="fas fa-bars"></i>
-            </div>
-          </a>
         </div>
       </section>
-      <a href="login.html" class="btn-dropdown" style="margin-top: 0">
-        <div class="btn-masuk-dropdown">
-          <p>Login</p>
-        </div>
-      </a>
-      <a href="register.html" class="btn-dropdown" style="margin-top: 0">
-        <div class="btn-masuk-dropdown">
-          <p>Register</p>
-        </div>
-      </a>
-      <a href="about.html" class="btn-dropdown" style="margin-top: 0">
-        <div class="btn-masuk-dropdown">
-          <p>about us</p>
-        </div>
-      </a>
-      <a href="contact.html" class="btn-dropdown" style="margin-top: 0">
-        <div class="btn-masuk-dropdown">
-          <p>contact us</p>
-        </div>
-      </a>
     </header>
 
-    <div class="home-container fade">
-      <section class="job-filter">
-        <form action="" method="post">
-          <div class="flex">
-            <div class="box">
-              <div class="dropdown-container">
-                <div class="dropdown">
-                  <input
-                    type="text"
-                    readonly
-                    name="specialist"
-                    placeholder="Job specialist"
-                    maxlength="5"
-                    class="output"
-                    id="jobspecialist"
-                  />
-                  <div class="lists">
-                    <p class="items items-specialist">marketing</p>
-                    <p class="items items-specialist">designer</p>
-                    <p class="items items-specialist">engineer</p>
-                    <p class="items items-specialist">consultant</p>
-                    <p class="items items-specialist">sales</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box">
-              <div class="dropdown-container">
-                <div class="dropdown">
-                  <input
-                    type="text"
-                    readonly
-                    name="specialist"
-                    placeholder="Job company"
-                    maxlength="5"
-                    class="output"
-                    id="jobscompany"
-                  />
-                  <div class="lists">
-                    <p class="items items-company">google</p>
-                    <p class="items items-company">facebook</p>
-                    <p class="items items-company">tiktok</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box">
-              <div class="dropdown-container">
-                <div class="dropdown">
-                  <input
-                    type="text"
-                    readonly
-                    name="date"
-                    placeholder="Job location"
-                    maxlength="5"
-                    class="output"
-                    id="jobslocation"
-                  />
-                  <div class="lists">
-                    <p class="items items-location">jakarta</p>
-                    <p class="items items-location">london</p>
-                    <p class="items items-location">ho chi minh</p>
-                    <p class="items items-location">san jose</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="btn-search">
-              <div class="btn-masuk-login">
-                <p>Search</p>
-                <i class="fas fa-search"></i></div
-            ></a>
-          </div>
-        </form>
-      </section>
-    </div>
+    <section class="about fade" id="profile">
+      <img src="images/IMG_2374 (2) (1).jpg" alt="" />
+      <div class="box">
+        <h3>I GST NGR GEDE AGUNG SUNIANTARA</h3>
+        <span class="verified"> Lecturer | Computer science | Data science</span>
+        <span class="company">Birthday</span>
+        <p>14 June 1998</p>
+        <span class="company">Age </span>
+        <p>26 years old</p>
+        <span class="company">Phone</span>
+        <p>+62 87861743646</p>
+        <span class="company">Degree</span>
+        <p>Master</p>
+        <span class="company">Email</span>
+        <p>agungsuniantara@gmail.com <br> agung_suniantara@stikom-bali.ac.id</p>
+      </div>
+    </section>
 
-    <section class="category fade">
-      <h1 class="heading">categories</h1>
+    <section class="about fade" id="about">
+      <div class="box">
+        <h3>ABOUT</h3>
+        <p>
+          Hello! I'm Agung Suniantara, 26 year old from Badung, Bali, Indonesia. I'm a senior IT teacher,  bootcamp data analyst mentor, and university lecturer in information systems. I have experience teaching programming languages to both children and adults, as well as creating both static and dynamic websites. Additionally, I have experience analyzing data and presenting results using graphics. I'm proficient in web programming, data analyst, data science, procedural programming, and object-oriented programming. I am also keen on learning new things and further deepening my knowledge of the programming languages I already know.
+        </p>
+      </div>
+    </section>
+
+    <section class="about fade" id="education">
+      <div class="box">
+        <h3>EDUCATION</h3>
+        <div class="about-job">
+          <div class="view-1">
+            <img src="images/stikom.jpeg" alt="" />
+            <div class="display">
+              <h2>Institute Technology and Business STIKOM Bali</h2>
+              <p>
+                <b>Bachelor of Information System | 2016 - 2020</b><br />
+                GPA : 3.57
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="about-job">
+          <div class="view-1">
+            <img src="images/Logo-unud-baru.png" alt="" />
+            <div class="display">
+              <h2>Udayana University</h2>
+              <p>
+                <b
+                  >Master of information and computer system management | 2021 -
+                  2023</b
+                >
+                <br />
+                GPA : 3.89
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="about-job">
+          <div class="view-1">
+            <img src="images/undiknas.jpg" alt="" />
+            <div class="display">
+              <h2>Undiknas University</h2>
+              <p>
+                <b
+                  >Engineering profession | 2023 - 2024</b>
+                <br />
+                GPA : 4.00
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about fade" id="experience">
+      <div class="box">
+        <h3>EXPERIENCE</h3>
+        <div class="about-job">
+          <div class="view-1">
+            <img src="images/stikom.jpeg" alt="" />
+            <div class="display">
+              <h2>Institute Technology and Business STIKOM Bali</h2>
+              <p>
+                <b>Lecturer ( December 2023 - present )</b><br />
+                - Teach algorithms and data structures, MySQL, object-oriented programming using Java to college students. 
+                <br> - Develop materials, assignments, and quizzes according to the curriculum. 
+                <br> - Create learning and assessment reports for each student.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="about-job">
+          <div class="view-1">
+            <img src="images/kodingakademi.jpg" alt="" />
+            <div class="display">
+              <h2>Koding Akademi</h2>
+              <p>
+                <b>Senior IT Teacher ( June 2022 - Present )</b> <br />
+                - Teach web programming using HTML, CSS, Bootstrap, PHP,
+                JavaScript, MySQL, AJAX <br />and XAMPP or MAMP for the web
+                server. <br />
+                - Teach programming languages such as C, C++, Python, and Java.
+                <br />
+                - Create learning reports for each student. <br />
+                - Develop e-learning course materials.
+              </p>
+              <p>
+                <b>Mentor Bootcamp Data Analyst ( June 2022 - Present )</b>
+                <br />
+                - Teach data analyst bootcamp using CSV, JSON, and MySQL data.
+                Process data with Python, Pandas, and display graphics with
+                Matplotlib, Seaborn. Also teach data processing and
+                visualization using Tableau.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="about-job">
+          <div class="view-1">
+            <img src="images/usericon.png" alt="" />
+            <div class="display">
+              <h2>Mentor Private</h2>
+              <p>
+                <b>Lecturer ( January 2024 - present )</b><br />
+                - Develop and deliver educational materials for university courses CSC108, CSC148, and CSC165 using Python. <br />
+              </p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <section class="about fade" id="skill">
+      <div class="box">
+        <h3>SKILL</h3>
+        <div class="about-job">
+          <div class="view-1">
+            <div class="display">
+              <p>1. Proficient in Microsoft Office (Word, Excel, PowerPoint) and Google Workspace (Google Sheets, Google Docs).</p>
+              <p>2. Skilled in programming languages such as HTML, CSS, PHP, JavaScript, Python, MySQL, C, C++, and Java.</p>
+              <p>3. Experienced in using Tableau for data processing and visualization.</p>
+              <p>4. Fluent speaking and writing in english.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="category fade">
+      <h1 class="heading">Project categories</h1>
 
       <div class="box-container">
         <a href="#" class="box box-category">
-          <img src="images/all jobs.jpg" alt="" />
-          <div>
-            <h3>all job</h3>
-          </div>
+          <h3>all project</h3>
         </a>
 
         <a href="#" class="box box-category">
-          <img src="images/designer.jpeg" alt="" />
-          <div>
-            <h3>designer</h3>
-          </div>
+          <h3>web developer</h3>
         </a>
 
         <a href="#" class="box box-category">
-          <img src="images/teacher.jpeg" alt="" />
-          <div>
-            <h3>engineer</h3>
-          </div>
+          <h3>data analyst</h3>
         </a>
 
         <a href="#" class="box box-category">
-          <img src="images/digital marketing.jpg" alt="" />
-          <div>
-            <h3>marketing</h3>
-          </div>
+          <h3>data scientist</h3>
         </a>
 
         <a href="#" class="box box-category">
-          <img src="images/digital marketing.jpg" alt="" />
-          <div>
-            <h3>consultant</h3>
-          </div>
+          <h3>java</h3>
         </a>
 
         <a href="#" class="box box-category">
-          <img src="images/digital marketing.jpg" alt="" />
-          <div>
-            <h3>sales</h3>
-          </div>
+          <h3>python</h3>
+        </a>
+
+        <a href="#" class="box box-category">
+          <h3>c programming</h3>
         </a>
       </div>
     </section>
 
     <section class="jobs-container fade" id="job-list">
-      <h1 class="heading">list jobs</h1>
+      <h1 class="heading">Project list</h1>
 
       <div class="box-container">
         <div
@@ -450,89 +518,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="jobs-info fade">
-      <div class="info-header">
-        <h1>
-          Dapatkan Kandidat <br />
-          dengan potensi terbaik
-        </h1>
-        <p>
-          Kami membantu perusahaan anda mencari talenta terbaik. Posting
-          lowongan kerja dengan mudah untuk terhubung dengan ribuan pencari
-          kerja yang sedang menanti. Gunakan layanan dan fitur serlok untuk
-          mempermudah proses recruitment.
-        </p>
-      </div>
-      <div class="info-button">
-        <a href="contact.html" class="btn-info" style="margin-top: 0">
-          contact us
-        </a>
-      </div>
-    </section>
-
-    <footer class="footer fade">
-      <section class="footer-info">
-        <button>
-          <i class="fab fa-whatsapp fa-lg" style="color: #ffffff"></i> Customer
-          Care
-        </button>
-        <div class="info-number">
-          <div class="data">
-            <h3>83</h3>
-            <p>Lowongan Aktif</p>
-          </div>
-          <div class="data">
-            <h3>167</h3>
-            <p>Job Seeker</p>
-          </div>
-          <div class="data">
-            <h3>125</h3>
-            <p>Freelancers</p>
-          </div>
-          <div class="data">
-            <h3>167</h3>
-            <p>Perusahaan</p>
-          </div>
-        </div>
-      </section>
-      <div class="credit">
-        <section class="grid">
-          <div class="box footer-img">
-            <img src="images/logo.png" alt="" />
-            <p>Jalan Melati No. 07</p>
-            <p>Denpasar, Bali, Indonesia</p>
-          </div>
-          <div class="box">
-            <h3>follow us</h3>
-            <a href="#"><i class="fab fa-facebook-f"></i>facebook</a>
-            <a href="#"><i class="fab fa-twitter"></i>twitter</a>
-            <a href="#"><i class="fab fa-instagram"></i>instagram</a>
-            <a href="#"><i class="fab fa-linkedin"></i>linkedin</a>
-            <a href="#"><i class="fab fa-youtube"></i>youtube</a>
-          </div>
-          <div class="box">
-            <h3>quick links</h3>
-            <a href="index.html"><i class="fas fa-angle-right"></i>home</a>
-            <a href="about.html"><i class="fas fa-angle-right"></i>about us</a>
-            <a href="contact.html"
-              ><i class="fas fa-angle-right"></i>contact us</a
-            >
-            <a href="register.html"
-              ><i class="fas fa-angle-right"></i>register</a
-            >
-            <a href="login.html"><i class="fas fa-angle-right"></i>login</a>
-          </div>
-          <div class="box">
-            <h3>download apps</h3>
-            <a href="#"><i class="fab fa-google-play fa-lg"></i>Google Play</a>
-          </div>
-        </section>
-        &copy; copyright by <span>SERLOK 2024</span>
-      </div>
-    </footer>
-
+    </section> -->
     <script src="js/script.js"></script>
   </body>
 </html>
