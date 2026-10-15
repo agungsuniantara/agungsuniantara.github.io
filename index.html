@@ -4,521 +4,585 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Agung Suniantara — Lecturer & Software Developer</title>
+    <meta
+      name="description"
+      content="I Gusti Ngurah Gede Agung Suniantara — Lecturer in Information Systems at ITB STIKOM Bali, Data Science Mentor, and Software Developer based in Bali, Indonesia."
+    />
+    <meta
+      name="author"
+      content="I Gusti Ngurah Gede Agung Suniantara"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#1E40AF"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#070B12"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="canonical"
+      href="https://agungsuniantara.github.io/"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://agungsuniantara.github.io/" />
+    <meta
+      property="og:title"
+      content="Agung Suniantara — Lecturer & Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Lecturer in Information Systems at ITB STIKOM Bali, Data Science Mentor, and Software Developer."
+    />
+    <meta
+      property="og:image"
+      content="https://agungsuniantara.github.io/images/og-image.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Agung Suniantara — Lecturer & Software Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Lecturer in Information Systems at ITB STIKOM Bali, Data Science Mentor, and Software Developer."
+    />
+    <meta
+      name="twitter:image"
+      content="https://agungsuniantara.github.io/images/og-image.jpg"
+    />
     <script>
-      document.addEventListener(
-        "contextmenu",
-        function (e) {
-          e.preventDefault();
-        },
-        false
-      );
-      document.addEventListener(
-        "keydown",
-        function (e) {
-          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-            disabledEvent(e);
-          }
-          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-            disabledEvent(e);
-          }
-          if (
-            e.keyCode == 83 &&
-            (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)
-          ) {
-            disabledEvent(e);
-          }
-          if (e.ctrlKey && e.keyCode == 85) {
-            disabledEvent(e);
-          }
-          if (event.keyCode == 123) {
-            disabledEvent(e);
-          }
-          if (e.ctrlKey && event.keyCode == 67) {
-            disabledEvent(e);
-          }
-        },
-        false
-      );
-      function disabledEvent(e) {
-        if (e.stopPropagation) {
-          e.stopPropagation();
-        } else if (window.event) {
-          window.event.cancelBubble = true;
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme =
+            saved === "dark" || saved === "light"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
         }
-        e.preventDefault();
-        return false;
-      }
+      })();
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <style>
+        .fade {
+          opacity: 1;
+          transform: none;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <header class="header">
-      <section class="flex">
-        <div class="right_wrapper">
-          <nav class="navbar">
-            <a href="#profile">profile</a>
-            <a href="#about">about</a>
-            <a href="#education">education</a>
-            <a href="#experience">experience</a>
-            <a href="#skill">skill</a>
-          </nav>
+      <nav class="nav">
+        <a href="#profile" class="nav__logo">Agung Suniantara</a>
+        <div class="nav__links" id="nav-menu">
+          <a href="#about" class="nav__link">About</a>
+          <a href="#experience" class="nav__link">Experience</a>
+          <a href="#education" class="nav__link">Education</a>
+          <a href="#projects" class="nav__link">Projects</a>
+          <a href="#skills" class="nav__link">Skills</a>
         </div>
-      </section>
+        <div class="nav__actions">
+          <button
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="theme-toggle__icon theme-toggle__moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              ></path>
+            </svg>
+          </button>
+          <button
+            class="nav__toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
     </header>
 
-    <section class="about fade" id="profile">
-      <img src="image.png" alt="" />
-      <div class="box">
-        <h3>I GST NGR GEDE AGUNG SUNIANTARA</h3>
-        <span class="verified"> Lecturer | Computer science | Data science</span>
-        <span class="company">Birthday</span>
-        <p>14 June 1998</p>
-        <span class="company">Age </span>
-        <p>26 years old</p>
-        <span class="company">Phone</span>
-        <p>+62 87861743646</p>
-        <span class="company">Degree</span>
-        <p>Master</p>
-        <span class="company">Email</span>
-        <p>agungsuniantara@gmail.com <br> agung_suniantara@stikom-bali.ac.id</p>
-      </div>
-    </section>
-
-    <section class="about fade" id="about">
-      <div class="box">
-        <h3>ABOUT</h3>
-        <p>
-          Hello! I'm Agung Suniantara, 26 year old from Badung, Bali, Indonesia. I'm a senior IT teacher,  bootcamp data analyst mentor, and university lecturer in information systems. I have experience teaching programming languages to both children and adults, as well as creating both static and dynamic websites. Additionally, I have experience analyzing data and presenting results using graphics. I'm proficient in web programming, data analyst, data science, procedural programming, and object-oriented programming. I am also keen on learning new things and further deepening my knowledge of the programming languages I already know.
-        </p>
-      </div>
-    </section>
-
-    <section class="about fade" id="education">
-      <div class="box">
-        <h3>EDUCATION</h3>
-        <div class="about-job">
-          <div class="view-1">
-            <img src="images/stikom.jpeg" alt="" />
-            <div class="display">
-              <h2>Institute Technology and Business STIKOM Bali</h2>
-              <p>
-                <b>Bachelor of Information System | 2016 - 2020</b><br />
-                GPA : 3.57
-              </p>
-            </div>
+    <main id="main">
+      <!-- 1. Hero Section -->
+      <section id="profile" class="section hero fade">
+        <div class="hero__header">
+          <div class="hero__avatar-wrap">
+            <img
+              src="images/agung2_avatar.jpg"
+              alt="I Gusti Ngurah Gede Agung Suniantara"
+              class="hero__avatar"
+              width="128"
+              height="128"
+              loading="eager"
+              decoding="async"
+            />
           </div>
-        </div>
-        <div class="about-job">
-          <div class="view-1">
-            <img src="images/Logo-unud-baru.png" alt="" />
-            <div class="display">
-              <h2>Udayana University</h2>
-              <p>
-                <b
-                  >Master of information and computer system management | 2021 -
-                  2023</b
-                >
-                <br />
-                GPA : 3.89
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="about-job">
-          <div class="view-1">
-            <img src="images/undiknas.jpg" alt="" />
-            <div class="display">
-              <h2>Undiknas University</h2>
-              <p>
-                <b
-                  >Engineering profession | 2023 - 2024</b>
-                <br />
-                GPA : 4.00
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about fade" id="experience">
-      <div class="box">
-        <h3>EXPERIENCE</h3>
-        <div class="about-job">
-          <div class="view-1">
-            <img src="images/stikom.jpeg" alt="" />
-            <div class="display">
-              <h2>Institute Technology and Business STIKOM Bali</h2>
-              <p>
-                <b>Lecturer ( December 2023 - present )</b><br />
-                - Teach algorithms and data structures, MySQL, object-oriented programming using Java to college students. 
-                <br> - Develop materials, assignments, and quizzes according to the curriculum. 
-                <br> - Create learning and assessment reports for each student.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="about-job">
-          <div class="view-1">
-            <img src="images/kodingakademi.jpg" alt="" />
-            <div class="display">
-              <h2>Koding Akademi</h2>
-              <p>
-                <b>Senior IT Teacher ( June 2022 - Present )</b> <br />
-                - Teach web programming using HTML, CSS, Bootstrap, PHP,
-                JavaScript, MySQL, AJAX <br />and XAMPP or MAMP for the web
-                server. <br />
-                - Teach programming languages such as C, C++, Python, and Java.
-                <br />
-                - Create learning reports for each student. <br />
-                - Develop e-learning course materials.
-              </p>
-              <p>
-                <b>Mentor Bootcamp Data Analyst & Data Science ( June 2022 - Present )</b>
-                <br />
-                - Teach data analyst and data science bootcamp using CSV, JSON, and MySQL data.
-                Process data with Python, Pandas, Machine learning, Statistic and display graphics with
-                Matplotlib, Seaborn. Also teach data processing and
-                visualization using Tableau.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="about-job">
-          <div class="view-1">
-            <img src="images/usericon.png" alt="" />
-            <div class="display">
-              <h2>Mentor Private</h2>
-              <p>
-                <b>Lecturer ( January 2024 - present )</b><br />
-                - Develop and deliver educational materials for university courses CSC108, CSC148, and CSC165 using Python. <br />
-              </p>
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </section>
-
-    <section class="about fade" id="skill">
-      <div class="box">
-        <h3>SKILL</h3>
-        <div class="about-job">
-          <div class="view-1">
-            <div class="display">
-              <p>1. Proficient in Microsoft Office (Word, Excel, PowerPoint) and Google Workspace (Google Sheets, Google Docs).</p>
-              <p>2. Skilled in programming languages such as HTML, CSS, PHP, JavaScript, Python, MySQL, C, C++, and Java.</p>
-              <p>3. Experienced in using Tableau for data processing and visualization.</p>
-              <p>4. Fluent speaking and writing in english.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section class="category fade">
-      <h1 class="heading">Project categories</h1>
-
-      <div class="box-container">
-        <a href="#" class="box box-category">
-          <h3>all project</h3>
-        </a>
-
-        <a href="#" class="box box-category">
-          <h3>web developer</h3>
-        </a>
-
-        <a href="#" class="box box-category">
-          <h3>data analyst</h3>
-        </a>
-
-        <a href="#" class="box box-category">
-          <h3>data scientist</h3>
-        </a>
-
-        <a href="#" class="box box-category">
-          <h3>java</h3>
-        </a>
-
-        <a href="#" class="box box-category">
-          <h3>python</h3>
-        </a>
-
-        <a href="#" class="box box-category">
-          <h3>c programming</h3>
-        </a>
-      </div>
-    </section>
-
-    <section class="jobs-container fade" id="job-list">
-      <h1 class="heading">Project list</h1>
-
-      <div class="box-container">
-        <div
-          class="box box-data"
-          data-specialist="engineer"
-          data-company="google"
-          data-location="jakarta"
-        >
-          <div class="company">
-            <img src="images/logo google.png" alt="" />
-            <div>
-              <h3>PT. Google Indonesia</h3>
-            </div>
-          </div>
-
-          <h3 class="job-title">
-            Customer Engineer, Google For Education & Chrome Enterprise
-          </h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> Jakarta Selatan</span>
+          <div class="hero__intro">
+            <h1 class="hero__name">I Gusti Ngurah Gede Agung Suniantara</h1>
+            <p class="hero__role">
+              Lecturer in Information Systems at ITB STIKOM Bali & Software Developer
             </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 20 Maret 2024</span>
+            <p class="hero__location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Bali, Indonesia
             </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobgoogle1.html" class="btn">view details</a>
           </div>
         </div>
 
-        <div
-          class="box box-data"
-          data-specialist="consultant"
-          data-company="google"
-          data-location="jakarta"
-        >
-          <div class="company">
-            <img src="images/logo google.png" alt="" />
-            <div>
-              <h3>PT. Google Indonesia</h3>
-            </div>
-          </div>
-
-          <h3 class="job-title">
-            Customer Solutions Consultant, Public Sector
-          </h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span>Jakarta Selatan</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 24 Maret 2024</span>
-            </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobgoogle2.html" class="btn">view details</a>
-          </div>
+        <div class="hero__bio">
+          <p>
+            Hi, I'm Agung. I teach Information Systems at ITB STIKOM Bali and mentor data science at Koding Akademi, passionate about software engineering and tech education.
+          </p>
         </div>
 
-        <div
-          class="box box-data"
-          data-specialist="sales"
-          data-company="google"
-          data-location="jakarta"
-        >
-          <div class="company">
-            <img src="images/logo google.png" alt="" />
-            <div>
-              <h3>PT. Google Indonesia</h3>
+        <div class="hero__actions">
+          <a href="mailto:agungsuniantara@gmail.com" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Email Me
+          </a>
+          <a href="https://github.com/agungsuniantara" class="btn btn--outline" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/agung-suniantara-5b4446235" class="btn btn--outline" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. About Section -->
+      <section id="about" class="section fade">
+        <div class="section__header">
+          <h2 class="section__title">About</h2>
+        </div>
+        <div class="about__narrative">
+          <p>
+            I am an educator and software developer based in Bali, Indonesia. As an Information Systems lecturer at ITB STIKOM Bali and a data science mentor at Koding Akademi, I have spent years guiding learners of all backgrounds from young students writing their first lines of code to university undergraduates and working professionals upskilling in technology.
+          </p>
+          <p>
+            I believe the best way to teach technology is through real-world implementation. Beyond the classroom, I build full-stack web applications and data systems, striving to make complex technical concepts intuitive and accessible for everyone.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Experience Section -->
+      <section id="experience" class="section fade">
+        <div class="section__header">
+          <h2 class="section__title">Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__period">Dec 2023 — Present</div>
+            <div class="timeline__main">
+              <div class="timeline__header">
+                <img
+                  src="images/logos/stikom-bali.png"
+                  alt="ITB STIKOM Bali"
+                  class="timeline__logo"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="timeline__role">Lecturer in Information Systems</h3>
+                  <p class="timeline__company">Institute of Technology and Business STIKOM Bali</p>
+                </div>
+              </div>
+              <ul class="timeline__list">
+                <li>Teach Programming Concepts, Object-Oriented Programming (Java), Database Practicum, Algorithms, and Data Structures.</li>
+                <li>Design teaching materials, lab assignments, and student project assessments.</li>
+                <li>Guide undergraduate students in applied software development and database design.</li>
+              </ul>
             </div>
           </div>
 
-          <h3 class="job-title">Sales Specialist, Google Workspace</h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> Jakarta Selatan</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 27 Maret 2024</span>
-            </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobgoogle3.html" class="btn">view details</a>
+          <div class="timeline__item">
+            <div class="timeline__period">Jun 2022 — Present</div>
+            <div class="timeline__main">
+              <div class="timeline__header">
+                <img
+                  src="images/logos/koding-akademi.jpg"
+                  alt="Koding Akademi"
+                  class="timeline__logo"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="timeline__role">Senior IT Teacher & Data Science Mentor</h3>
+                  <p class="timeline__company">Koding Akademi</p>
+                </div>
+              </div>
+              <ul class="timeline__list">
+                <li>Teach web programming (HTML, CSS, Bootstrap, PHP, JavaScript, MySQL) and languages including Python, Java, C, and C++.</li>
+                <li>Lead the Data Analyst & Data Science Bootcamp, mentoring students on dataset preparation, exploratory analysis, visualization, and machine learning algorithms.</li>
+                <li>Develop course materials, practical exercises, and individual student progress reports.</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div
-          class="box box-data"
-          data-specialist="engineer"
-          data-company="facebook"
-          data-location="london"
-        >
-          <div class="company">
-            <img src="images/logo facebook.png" alt="" />
-            <div>
-              <h3>Facebook</h3>
+      <!-- 4. Education Section -->
+      <section id="education" class="section fade">
+        <div class="section__header">
+          <h2 class="section__title">Education</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__period">2023 — 2024</div>
+            <div class="timeline__main">
+              <div class="timeline__header">
+                <img
+                  src="images/logos/undiknas.jpg"
+                  alt="Undiknas University"
+                  class="timeline__logo"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="timeline__role">Engineering Profession (Insinyur / Ir.)</h3>
+                  <p class="timeline__company">Undiknas University</p>
+                </div>
+              </div>
+              <p class="timeline__grade">GPA: 4.00 / 4.00</p>
             </div>
           </div>
 
-          <h3 class="job-title">Network Engineer, Optical Design</h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> London, UK</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 28 Maret 2024</span>
-            </p>
+          <div class="timeline__item">
+            <div class="timeline__period">2021 — 2023</div>
+            <div class="timeline__main">
+              <div class="timeline__header">
+                <img
+                  src="images/logos/unud.png"
+                  alt="Udayana University"
+                  class="timeline__logo"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="timeline__role">Master of Information and Computer System Management (M.T)</h3>
+                  <p class="timeline__company">Udayana University</p>
+                </div>
+              </div>
+              <p class="timeline__grade">GPA: 3.89 / 4.00</p>
+            </div>
           </div>
 
-          <div class="flex-btn">
-            <a href="view_jobfacebook1.html" class="btn">view details</a>
+          <div class="timeline__item">
+            <div class="timeline__period">2016 — 2020</div>
+            <div class="timeline__main">
+              <div class="timeline__header">
+                <img
+                  src="images/logos/stikom-bali.png"
+                  alt="ITB STIKOM Bali"
+                  class="timeline__logo"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="timeline__role">Bachelor of Information Systems (S.Kom)</h3>
+                  <p class="timeline__company">Institute of Technology and Business STIKOM Bali</p>
+                </div>
+              </div>
+              <p class="timeline__grade">GPA: 3.57 / 4.00</p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div
-          class="box box-data"
-          data-specialist="marketing"
-          data-company="facebook"
-          data-location="london"
-        >
-          <div class="company">
-            <img src="images/logo facebook.png" alt="" />
-            <div>
-              <h3>Facebook</h3>
-            </div>
-          </div>
-
-          <h3 class="job-title">
-            Product Marketing Manager, MetaWorks - Reality Labs
-          </h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> London, UK</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 23 Maret 2024</span>
-            </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobfacebook2.html" class="btn">view details</a>
-          </div>
+      <!-- 5. Projects Section -->
+      <section id="projects" class="section fade">
+        <div class="section__header">
+          <h2 class="section__title">Projects</h2>
+          <p class="section__desc">
+            A collection of web applications, data science work, and software projects I have developed and contributed to.
+          </p>
         </div>
 
-        <div
-          class="box box-data"
-          data-specialist="marketing"
-          data-company="facebook"
-          data-location="london"
-        >
-          <div class="company">
-            <img src="images/logo facebook.png" alt="" />
-            <div>
-              <h3>Facebook</h3>
-            </div>
-          </div>
-
-          <h3 class="job-title">Integrated Marketing Manager - Quest DE</h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> London, UK</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 29 Maret 2024</span>
-            </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobfacebook3.html" class="btn">view details</a>
-          </div>
+        <div class="project-filters" role="tablist" aria-label="Project categories">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">
+            All <span class="filter-btn__count">5</span>
+          </button>
+          <button class="filter-btn" data-filter="ai-ml" aria-pressed="false">
+            AI & Data Science <span class="filter-btn__count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="web-eng" aria-pressed="false">
+            Web Development <span class="filter-btn__count">3</span>
+          </button>
         </div>
 
-        <div
-          class="box box-data"
-          data-specialist="designer"
-          data-company="tiktok"
-          data-location="san jose"
-        >
-          <div class="company">
-            <img src="images/logo tiktok.png" alt="" />
-            <div>
-              <h3>Tiktok</h3>
+        <div class="projects__grid">
+          <!-- 1. Obrolyn -->
+          <article class="project-card" data-category="ai-ml">
+            <h3 class="project-card__title">
+              <a href="https://obrolyn.com" target="_blank" rel="noopener">
+                Obrolyn AI
+              </a>
+            </h3>
+            <p class="project-card__desc">
+              Web application for exploring academic literature, analyzing documents, and assisting with research and programming. Built with SvelteKit, PostgreSQL with pgvector, and LLM APIs.
+            </p>
+            <div class="chips">
+              <span class="chip">SvelteKit</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">pgvector</span>
+              <span class="chip">Redis</span>
+            </div>
+            <div class="project-card__links">
+              <a href="https://obrolyn.com" class="link link--primary" target="_blank" rel="noopener">
+                Live App (obrolyn.com)
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. Data Science Projects -->
+          <article class="project-card" data-category="ai-ml">
+            <h3 class="project-card__title">
+              <a href="https://github.com/agungsuniantara/data-science-project" target="_blank" rel="noopener">
+                Data Science
+              </a>
+            </h3>
+            <p class="project-card__desc">
+              Applied machine learning and analytics workflows covering venue demand time-series forecasting, wedding budget estimation, guest RSVP classification, EO client segmentation using PCA & K-Means, and business sales EDA.
+            </p>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Scikit-Learn</span>
+              <span class="chip">XGBoost</span>
+              <span class="chip">Statsmodels</span>
+              <span class="chip">Pandas</span>
+              <span class="chip">Jupyter</span>
+            </div>
+            <div class="project-card__links">
+              <a href="https://github.com/agungsuniantara/data-science-project" class="link link--primary" target="_blank" rel="noopener">
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. Uma Coding - Content Management System -->
+          <article class="project-card" data-category="web-eng">
+            <h3 class="project-card__title">
+              <a href="https://cms.umacoding.com/" target="_blank" rel="noopener">
+                Uma Coding — Content Management System
+              </a>
+            </h3>
+            <p class="project-card__desc">
+              Administrative content management system (CMS) for managing courses, blog articles, media assets, and user data. Built with Laravel 12 and Filament PHP, exposing REST APIs for public web integration.
+            </p>
+            <div class="chips">
+              <span class="chip">Laravel 12</span>
+              <span class="chip">Filament PHP</span>
+              <span class="chip">PHP 8.2</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">REST API</span>
+            </div>
+            <div class="project-card__links">
+              <a href="https://cms.umacoding.com/" class="link link--primary" target="_blank" rel="noopener">
+                Live App (cms.umacoding.com)
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. Uma Coding - Learning Management System -->
+          <article class="project-card" data-category="web-eng">
+            <h3 class="project-card__title">
+              <a href="https://lms.umacoding.com/" target="_blank" rel="noopener">
+                Uma Coding — Learning Management System
+              </a>
+            </h3>
+            <p class="project-card__desc">
+              Interactive learning management platform for coding courses, featuring modular lesson curriculum, quiz assessments, assignment submissions, and student learning progress tracking.
+            </p>
+            <div class="chips">
+              <span class="chip">Laravel 12</span>
+              <span class="chip">Inertia.js</span>
+              <span class="chip">React</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Tailwind CSS</span>
+            </div>
+            <div class="project-card__links">
+              <a href="https://lms.umacoding.com/" class="link link--primary" target="_blank" rel="noopener">
+                Live App (lms.umacoding.com)
+              </a>
+            </div>
+          </article>
+
+          <!-- 5. Uma Coding - Web Portal -->
+          <article class="project-card" data-category="web-eng">
+            <h3 class="project-card__title">
+              <a href="https://umacoding.com/" target="_blank" rel="noopener">
+                Uma Coding — Web Portal
+              </a>
+            </h3>
+            <p class="project-card__desc">
+              Official public landing page and course directory for Uma Coding, featuring responsive course exploration, company profile, and dynamic content consumed from the CMS REST API.
+            </p>
+            <div class="chips">
+              <span class="chip">Next.js</span>
+              <span class="chip">React</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">REST API</span>
+            </div>
+            <div class="project-card__links">
+              <a href="https://umacoding.com/" class="link link--primary" target="_blank" rel="noopener">
+                Live App (umacoding.com)
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 6. Technical Stack Section -->
+      <section id="skills" class="section fade">
+        <div class="section__header">
+          <h2 class="section__title">Skills</h2>
+        </div>
+        <div class="skills__grid">
+          <div class="skills__category">
+            <h3 class="skills__title">Programming Languages</h3>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">PHP</span>
+              <span class="chip">Java</span>
+              <span class="chip">C / C++</span>
             </div>
           </div>
-
-          <h3 class="job-title">Senior Product Designer, Platform</h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> San Jose</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 19 Maret 2024</span>
-            </p>
+          <div class="skills__category">
+            <h3 class="skills__title">AI & Data Science</h3>
+            <div class="chips">
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Scikit-Learn</span>
+              <span class="chip">XGBoost</span>
+              <span class="chip">Pandas</span>
+              <span class="chip">NumPy</span>
+              <span class="chip">Matplotlib</span>
+              <span class="chip">Seaborn</span>
+            </div>
           </div>
-
-          <div class="flex-btn">
-            <a href="view_jobtiktok1.html" class="btn">view details</a>
+          <div class="skills__category">
+            <h3 class="skills__title">Web Development</h3>
+            <div class="chips">
+              <span class="chip">SvelteKit</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">React</span>
+              <span class="chip">Laravel</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">Bootstrap</span>
+            </div>
+          </div>
+          <div class="skills__category">
+            <h3 class="skills__title">Databases & Tools</h3>
+            <div class="chips">
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Redis</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Git</span>
+              <span class="chip">REST APIs</span>
+            </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div
-          class="box box-data"
-          data-specialist="marketing"
-          data-company="tiktok"
-          data-location="ho chi minh"
-        >
-          <div class="company">
-            <img src="images/logo tiktok.png" alt="" />
-            <div>
-              <h3>Tiktok</h3>
-            </div>
-          </div>
-
-          <h3 class="job-title">
-            Business Marketing Communications Lead, Vietnam
-          </h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i
-              ><span> Ho Chi Minh City</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 20 Maret 2024</span>
-            </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobtiktok2.html" class="btn">view details</a>
-          </div>
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <p class="footer__name">Agung Suniantara</p>
+          <p class="footer__desc">Bali, Indonesia • <a href="mailto:agungsuniantara@gmail.com">agungsuniantara@gmail.com</a></p>
         </div>
-
-        <div
-          class="box box-data"
-          data-specialist="marketing"
-          data-company="tiktok"
-          data-location="san jose"
-        >
-          <div class="company">
-            <img src="images/logo tiktok.png" alt="" />
-            <div>
-              <h3>Tiktok</h3>
-            </div>
-          </div>
-
-          <h3 class="job-title">
-            Product Manager, Content Classification - Trust & Safety
-          </h3>
-          <div class="box-location">
-            <p class="location">
-              <i class="fas fa-map-marker-alt"></i><span> San Jose</span>
-            </p>
-            <p class="location">
-              <i class="far fa-clock"></i><span> 22 Maret 2024</span>
-            </p>
-          </div>
-
-          <div class="flex-btn">
-            <a href="view_jobtiktok3.html" class="btn">view details</a>
-          </div>
+        <div class="footer__links">
+          <a
+            href="https://github.com/agungsuniantara"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/agung-suniantara-5b4446235"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://instagram.com/agungsuniantaraa"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram
+          </a>
         </div>
       </div>
-    </section> -->
-    <script src="js/script.js"></script>
+    </footer>
+
+    <script src="js/script.js?v=2.0"></script>
   </body>
 </html>

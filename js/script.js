@@ -1,115 +1,181 @@
-$(document).ready(function () {
-  // function
-  function selectLocation(location) {
-    $("#jobslocation").val(location);
-    $(".btn-dropdown").removeClass("active");
+document.addEventListener("DOMContentLoaded", function () {
+  var fadeElements = document.querySelectorAll(".fade");
+
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    fadeElements.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    fadeElements.forEach(function (el) {
+      el.classList.add("fade-in");
+    });
   }
-  function selectSpecialist(location) {
-    $("#jobspecialist").val(location);
-    $(".btn-dropdown").removeClass("active");
+
+  var navToggle = document.querySelector(".nav__toggle");
+  var navLinks = document.querySelector(".nav__links");
+
+  function closeMenu() {
+    navLinks.classList.remove("open");
+    navToggle.classList.remove("active");
+    navToggle.setAttribute("aria-expanded", "false");
   }
-  function selectCompany(location) {
-    $("#jobscompany").val(location);
-    $(".btn-dropdown").removeClass("active");
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = navLinks.classList.toggle("open");
+      navToggle.classList.toggle("active", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.addEventListener("click", function (event) {
+      if (event.target.tagName === "A") {
+        document.querySelectorAll(".nav__link").forEach(function (link) {
+          link.classList.remove("active");
+        });
+        event.target.classList.add("active");
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        navLinks.classList.contains("open") &&
+        !navToggle.contains(event.target) &&
+        !navLinks.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navLinks.classList.contains("open")) {
+        closeMenu();
+        navToggle.focus();
+      }
+    });
   }
-  function filterJobs(category) {
-    $(".box-data").hide();
-    if (category === "all job") {
-      $(".box-data").show();
-    } else if (category === "marketing") {
-      $('.box-data[data-specialist="' + category + '"]').show();
-    } else if (category === "designer") {
-      $('.box-data[data-specialist="' + category + '"]').show();
-    } else if (category === "engineer") {
-      $('.box-data[data-specialist="' + category + '"]').show();
-    } else if (category === "consultant") {
-      $('.box-data[data-specialist="' + category + '"]').show();
-    } else if (category === "sales") {
-      $('.box-data[data-specialist="' + category + '"]').show();
+
+  var navSections = [
+    document.getElementById("about"),
+    document.getElementById("experience"),
+    document.getElementById("education"),
+    document.getElementById("projects"),
+    document.getElementById("skills")
+  ].filter(Boolean);
+  var navLinkItems = document.querySelectorAll(".nav__link");
+
+  function updateScrollSpy() {
+    var scrollPosition = window.scrollY || window.pageYOffset;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+
+    // 1. Top of page (Hero/Profile): deselect all nav links
+    if (scrollPosition < 120) {
+      navLinkItems.forEach(function (link) {
+        link.classList.remove("active");
+      });
+      return;
     }
 
-    $("html, body").animate(
-      {
-        scrollTop: $("#job-list").offset().top,
-      },
-      300
-    );
-  }
-  function animateOnScroll() {
-    $(".fade").each(function () {
-      var position = $(this).offset().top;
-      var scroll = $(window).scrollTop();
-      var windowHeight = $(window).height();
-      if (scroll > position - windowHeight + 200) {
-        $(this).addClass("fade-in");
-      } else {
-        $(this).removeClass("fade-in");
-      }
-    });
-  }
+    // 2. Bottom of page: activate last section (skills)
+    var isAtBottom = (windowHeight + Math.ceil(scrollPosition)) >= (documentHeight - 60);
+    if (isAtBottom) {
+      navLinkItems.forEach(function (link) {
+        link.classList.toggle("active", link.getAttribute("href") === "#skills");
+      });
+      return;
+    }
 
-  // Event listener
-  $(".items-specialist").click(function () {
-    var specialist = $(this).text();
-    selectSpecialist(specialist);
-  });
+    // 3. Focal line detection (upper 35% of viewport)
+    var current = "";
+    var focalLine = windowHeight * 0.35;
 
-  $(".items-company").click(function () {
-    var specialist = $(this).text();
-    selectCompany(specialist);
-  });
-
-  $(".items-location").click(function () {
-    var specialist = $(this).text();
-    selectLocation(specialist);
-  });
-
-  $(".btn-menu").click(function (e) {
-    e.preventDefault();
-
-    $(".btn-dropdown").toggleClass("active");
-  });
-
-  $(".btn-search").click(function () {
-    var selectedSpecialist = $("#jobspecialist").val();
-    var selectedCompany = $("#jobscompany").val();
-    var selectedLocation = $("#jobslocation").val();
-
-    $(".box-data").hide();
-
-    $(".box-data").each(function () {
-      var specialist = $(this).data("specialist");
-      var company = $(this).data("company");
-      var location = $(this).data("location");
-
-      if (
-        (selectedSpecialist === "" || selectedSpecialist === specialist) &&
-        (selectedCompany === "" || selectedCompany === company) &&
-        (selectedLocation === "" || selectedLocation === location)
-      ) {
-        $(this).show();
+    navSections.forEach(function (section) {
+      var rect = section.getBoundingClientRect();
+      if (rect.top <= focalLine && rect.bottom >= 80) {
+        current = section.getAttribute("id");
       }
     });
 
-    $("html, body").animate(
-      {
-        scrollTop: $("#job-list").offset().top,
-      },
-      300
-    );
+    // 4. Skills section detection (when it enters the main view)
+    var skillsEl = document.getElementById("skills");
+    if (skillsEl) {
+      var skillsRect = skillsEl.getBoundingClientRect();
+      if (skillsRect.top <= windowHeight * 0.55 && skillsRect.bottom >= 100) {
+        current = "skills";
+      }
+    }
 
-    return false;
-  });
+    navLinkItems.forEach(function (link) {
+      var isActive = link.getAttribute("href") === "#" + current;
+      link.classList.toggle("active", isActive);
+    });
+  }
 
-  $(".box-category").click(function (e) {
-    e.preventDefault();
-    var category = $(this).find("h3").text().toLowerCase();
-    filterJobs(category);
-  });
+  window.addEventListener("scroll", updateScrollSpy, { passive: true });
+  window.addEventListener("resize", updateScrollSpy, { passive: true });
+  updateScrollSpy();
 
-  animateOnScroll();
+  var themeToggle = document.querySelector(".theme-toggle");
 
-  $(window).scroll(function () {
-    animateOnScroll();
-  });
+  function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+    }
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {
+      /* storage unavailable */
+    }
+  }
+
+  if (themeToggle) {
+    setTheme(document.documentElement.getAttribute("data-theme") || "light");
+
+    themeToggle.addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  }
+
+  // Project Category Filter
+  var filterButtons = document.querySelectorAll(".filter-btn");
+  var projectCards = document.querySelectorAll(".project-card");
+
+  if (filterButtons.length > 0 && projectCards.length > 0) {
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filter = this.getAttribute("data-filter");
+
+        filterButtons.forEach(function (btn) {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-pressed", "false");
+        });
+        this.classList.add("active");
+        this.setAttribute("aria-pressed", "true");
+
+        projectCards.forEach(function (card) {
+          var category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.classList.remove("is-hidden");
+          } else {
+            card.classList.add("is-hidden");
+          }
+        });
+      });
+    });
+  }
 });
+
